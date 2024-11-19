@@ -5,11 +5,12 @@
 {% block content %}
 <div class="error-message">
     <h2>Action non autorisée</h2>
-    <p>L'état actuel de <strong>{{ animal.nom }}</strong> ne permet pas cette action.</p>
-    <p>État actuel : <strong>{{ animal.get_etat_display }}</strong></p>
+    <p>État actuel de <strong>{{ animal.nom }}</strong> : <strong>{{ animal.get_etat_display }}</strong></p>
     
-    {% if reason %}
-        <p>Raison : <strong>{{ reason }}</strong></p>
+    {% if messages %}
+        {% for message in messages %}
+            <p><strong>{{ message }}</strong></p>
+        {% endfor %}
     {% endif %}
 
     <a href="{% url 'home' %}" class="return-button">Retour à la page d'accueil</a>
