@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Animal, Equipement
 from .forms import AssignEquipementForm
+from django.contrib import messages
 
 def home(request):
     """Affiche la liste des animaux et des équipements."""
@@ -25,6 +26,11 @@ def animal_detail(request, animal_id):
             animal = form.save(commit=False)
             new_equipement = animal.equipement
 
+            if new_equipement.type != "litière" and not new_equipement.disponible:
+                 messages.error(request, f"L'équipement {new_equipement.nom} est déjà occupé.")
+                 return redirect('action_not_allowed', animal_id=animal.id)
+
+
             # Logique métier pour l'action
             if new_equipement:
                 if new_equipement.type == 'mangeoire' and animal.etat == 'affamé':
@@ -41,6 +47,7 @@ def animal_detail(request, animal_id):
                     if old_equipement and old_equipement.type == "nid" and animal.etat == "endormi":
                         animal.etat = "affamé"
                 else:
+                    messages.error(request, f"L'état actuel de {animal.nom} ne permet pas cette action.")
                     return redirect('action_not_allowed', animal_id=animal.id)
 
                 # Libérer l'ancien équipement si nécessaire
@@ -70,6 +77,7 @@ def assign_animal_to_equipement(request, animal_id):
             new_equipement = form.cleaned_data['equipement']
 
             if new_equipement.type != "litière" and not new_equipement.disponible:
+                messages.error(request, f"L'équipement {new_equipement.nom} est déjà occupé.")
                 return redirect('action_not_allowed', animal_id=animal.id)
 
             # Libérer l'ancien équipement (sauf pour la litière)
@@ -98,6 +106,7 @@ def assign_animal_to_equipement(request, animal_id):
                 pass
             else:
                 # Si l'action n'est pas permise
+                messages.error(request, f"L'état actuel de {animal.nom} ne permet pas cette action.")
                 return redirect('action_not_allowed', animal_id=animal.id)
 
             # Sauvegarder l'animal et le nouvel équipement
