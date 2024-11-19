@@ -1,0 +1,224 @@
+/* Corps de la page */
+body {
+    font-family: 'Verdana', sans-serif;
+    background-color: #f0f8ff; /* Bleu clair */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* En-tête principal */
+h1 {
+    color: #ff4500; /* Orange vif */
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 20px;
+}
+
+/* Sous-titres */
+h2 {
+    color: #2e8b57; /* Vert foncé */
+    font-size: 2rem;
+    margin-top: 20px;
+    text-decoration: underline;
+}
+
+/* Liste des animaux */
+.animal-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.animal-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 2px solid #ffa07a; /* Saumon clair */
+    border-radius: 10px;
+    background-color: #ffffff; /* Blanc */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.animal-item img {
+    max-width: 150px;
+    border-radius: 10px;
+    margin-right: 20px;
+    border: 3px solid #ffb6c1; /* Rose clair */
+}
+
+/* Détails des animaux */
+.animal-details {
+    font-size: 1.2rem;
+    color: #00008b; /* Bleu foncé */
+}
+
+.animal-details a {
+    color: #ff6347; /* Rouge tomate */
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.animal-details a:hover {
+    text-decoration: underline;
+}
+
+/* Liste des équipements */
+.equipment-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.equipment-item {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #32cd32; /* Vert lime */
+    border-radius: 5px;
+    background-color: #e0ffff; /* Bleu clair pâle */
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.equipment-item strong {
+    color: #8b0000; /* Rouge sombre */
+}
+
+/* Boutons et liens */
+a {
+    color: #1e90ff; /* Bleu dodger */
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.return-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #ff4500; /* Orange vif */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.return-button:hover {
+    background-color: #ff6347; /* Rouge tomate */
+}
+
+/* Pied de page */
+footer {
+    background-color: #2e8b57; /* Vert foncé */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 0.9rem;
+}
+/* Styles généraux */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Titres */
+.main-title {
+    font-family: 'Georgia', serif;
+    font-size: 36px;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-family: 'Georgia', serif;
+    font-size: 24px;
+    color: #3498db;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+/* Détails de l'animal */
+.animal-details {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.animal-image img {
+    max-width: 150px;
+    border-radius: 5px;
+    border: 2px solid #ddd;
+}
+
+.animal-info p {
+    font-size: 16px;
+}
+
+.highlight {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+.no-image {
+    color: #999;
+}
+
+/* Liste des actions */
+.action-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.action-item {
+    margin-bottom: 10px;
+}
+
+.action-link {
+    text-decoration: none;
+    color: #3498db;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.action-link:hover {
+    text-decoration: underline;
+    color: #2980b9;
+}
+
+/* Bouton retour */
+.return-button {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #fff;
+    background: #3498db;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.return-button:hover {
+    background: #2980b9;
+}
+

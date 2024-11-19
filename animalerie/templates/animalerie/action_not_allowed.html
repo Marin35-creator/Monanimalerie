@@ -1,0 +1,17 @@
+{% extends 'animalerie/base.html' %}
+
+{% block title %}Action non autorisée{% endblock %}
+
+{% block content %}
+<div class="error-message">
+    <h2>Action non autorisée</h2>
+    <p>L'état actuel de <strong>{{ animal.nom }}</strong> ne permet pas cette action.</p>
+    <p>État actuel : <strong>{{ animal.get_etat_display }}</strong></p>
+    
+    {% if reason %}
+        <p>Raison : <strong>{{ reason }}</strong></p>
+    {% endif %}
+
+    <a href="{% url 'home' %}" class="return-button">Retour à la page d'accueil</a>
+</div>
+{% endblock %}

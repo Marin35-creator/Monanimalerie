@@ -1,0 +1,37 @@
+{% extends 'animalerie/base.html' %}
+
+{% block title %}Détail de {{ animal.nom }}{% endblock %}
+
+{% block content %}
+<div class="animal-details">
+    <img src="{{ animal.image.url }}" alt="{{ animal.nom }}" class="animal-thumbnail">
+    <h2 class="section-title">Détails de {{ animal.nom }}</h2>
+    <p><strong>Espèce :</strong> {{ animal.espece }}</p>
+    <p><strong>État :</strong> {{ animal.get_etat_display }}</p>
+    <p><strong>Équipement :</strong>
+        {% if animal.equipement %}
+            {{ animal.equipement.nom }}
+        {% else %}
+            Aucun
+        {% endif %}
+    </p>
+
+    <h3 class="section-title">Modifier les détails de l'animal</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="submit-button">Mettre à jour</button>
+    </form>
+
+    <a href="{% url 'home' %}" class="return-button">Retour à la page d'accueil</a>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+{% extends 'animalerie/base.html' %}
+
+{% block title %}Accueil - Animalerie{% endblock %}
+
+{% block content %}
+<h2 class="section-title">Liste des animaux</h2>
+<ul class="animal-list">
+    {% for animal in animals %}
+        <li class="animal-item">
+            <img src="{{ animal.image.url }}" alt="{{ animal.nom }}" class="animal-thumbnail">
+            <p><strong>{{ animal.nom }}</strong> ({{ animal.espece }})</p>
+            <p>État : {{ animal.get_etat_display }}</p>
+            <a href="{% url 'animal_detail' animal.id %}" class="action-link">Voir les détails</a>
+        </li>
+    {% endfor %}
+</ul>
+
+<h2 class="section-title">Liste des équipements</h2>
+<ul class="equipment-list">
+    {% for equipment in equipments %}
+        <li class="equipment-item">
+            <strong>{{ equipment.nom }}</strong> <br>
+            Type : {{ equipment.type }} <br>
+            Disponibilité : 
+            {% if equipment.disponible %}
+                <span style="color: green;">Libre</span>
+            {% else %}
+                <span style="color: red;">Occupé</span>
+                {% if equipment.occupant %}
+                    par {{ equipment.occupant.nom }}
+                {% endif %}
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
+
+
+{% endblock %}
+
+
+
+
+
+
